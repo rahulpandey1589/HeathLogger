@@ -10,6 +10,7 @@ namespace Data
         public HealthLoggerDbContext(DbContextOptions options) 
             : base(options)
         {
+
         }
 
         public DbSet<User> Users { get; set; }

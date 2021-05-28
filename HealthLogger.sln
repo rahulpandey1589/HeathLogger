@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Configuration", "Data.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Repositories", "Data.Repositories\Data.Repositories.csproj", "{20593CDD-57DB-4E94-BB34-ACBFB1107848}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Models", "Data.Models\Data.Models.csproj", "{31DFCC11-7F1D-4E6D-9411-BB02627E6027}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Models", "Data.Models\Data.Models.csproj", "{31DFCC11-7F1D-4E6D-9411-BB02627E6027}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthLoggerAPI", "HealthLoggerAPI\HealthLoggerAPI.csproj", "{03994814-CE0A-4A07-B26C-981DCEAD4785}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{31DFCC11-7F1D-4E6D-9411-BB02627E6027}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31DFCC11-7F1D-4E6D-9411-BB02627E6027}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31DFCC11-7F1D-4E6D-9411-BB02627E6027}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03994814-CE0A-4A07-B26C-981DCEAD4785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03994814-CE0A-4A07-B26C-981DCEAD4785}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03994814-CE0A-4A07-B26C-981DCEAD4785}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03994814-CE0A-4A07-B26C-981DCEAD4785}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
