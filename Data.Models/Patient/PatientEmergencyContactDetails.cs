@@ -2,7 +2,7 @@
 
 namespace Data.Models.Patient
 {
-    public class PatientEmergencyContactDetails : BaseModel
+    public class PatientEmergencyContactDetails : AuditEntity<short>
     {
         public int Id { get; set; }
 

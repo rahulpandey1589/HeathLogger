@@ -2,7 +2,7 @@
 
 namespace Data.Models.Common
 {
-    public class Address : BaseModel
+    public class Address : AuditEntity<short>
     {
         public int Id { get; set; }
 

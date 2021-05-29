@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Threading.Tasks;
 
 namespace Data.Configuration
 {
     public interface IUnitOfWork
     {
-        void Commit();
+       Task<int> CommitAsync();
     }
 }

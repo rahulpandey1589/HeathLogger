@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Data.Models.Common
 {
-    public class TestMaster : BaseModel
+    public class TestMaster : AuditEntity<short>
     {
 
         public int Id { get; set; }

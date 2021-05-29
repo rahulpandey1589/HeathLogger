@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Data.Models.Patient
 {
-    public class Patient : BaseModel
+    public class Patient : AuditEntity<short>
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
