@@ -22,7 +22,5 @@ namespace HealthLoggerAPI.Controllers
             var allRelations = await commonService.GetAllRelationsAsync();
             return Ok();
         } 
-
-
     }
 }
