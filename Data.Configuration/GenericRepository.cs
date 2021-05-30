@@ -41,7 +41,7 @@ namespace Data.Configuration
                 DbSet.Remove(entity);
         }
 
-        public IQueryable<T> List(Expression<Func<T, bool>> expression)
+        public IQueryable<T> Get(Expression<Func<T, bool>> expression)
         {
             return DbSet.Where(expression);
         }

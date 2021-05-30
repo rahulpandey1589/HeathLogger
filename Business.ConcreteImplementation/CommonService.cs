@@ -4,6 +4,7 @@ using Data.Repositories.Interface;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace Business.ConcreteImplementation
 {
@@ -18,7 +19,7 @@ namespace Business.ConcreteImplementation
 
         public Task<IReadOnlyCollection<RelationShipMasterDTO>> GetAllRelationsAsync()
         {
-            var allRelations = _relationShipRepository.List(x => x.IsActive);
+            var allRelations = _relationShipRepository.Get(x => x.IsActive).ToList();
 
             throw new NotImplementedException();
         }

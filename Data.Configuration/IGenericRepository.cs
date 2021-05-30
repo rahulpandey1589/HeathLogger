@@ -9,6 +9,6 @@ namespace Data.Configuration
         void Add(T entity);
         void Delete(T entity);
         void Update(T entity);
-        IQueryable<T> List(Expression<Func<T, bool>> expression);
+        IQueryable<T> Get(Expression<Func<T, bool>> expression);
     }
 }
