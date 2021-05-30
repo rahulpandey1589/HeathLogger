@@ -29,7 +29,11 @@ namespace HealthLoggerAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.RegisterDbContext(Configuration);
+
+            services.RegisterDbContext(Configuration)
+                     .RegisterRepositories();
+
+
             services.RegisterDependencies();
         }
 

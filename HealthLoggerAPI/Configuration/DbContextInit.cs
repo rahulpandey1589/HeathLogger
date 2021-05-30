@@ -1,5 +1,7 @@
 ﻿using Data;
 using Data.Configuration;
+using Data.Repositories.Concrete;
+using Data.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +24,13 @@ namespace HealthLoggerAPI.Configuration
             services.AddScoped<DbFactory>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+            return services;
+        }
+
+        public static IServiceCollection RegisterRepositories(
+           this IServiceCollection services)
+        {
+            services.AddScoped<IRelationShipRepository, RelationShipRepository>();
             return services;
         }
 

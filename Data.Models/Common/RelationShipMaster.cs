@@ -11,6 +11,8 @@ namespace Data.Models.Common
 
         public string RelationShipName { get; set; }
 
+        public bool IsActive { get; set; }
+
         public virtual PatientEmergencyContactDetails PatientEmergency { get; set; }
     }
 }

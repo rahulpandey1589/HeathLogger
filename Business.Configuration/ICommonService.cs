@@ -8,6 +8,6 @@ namespace Business.Configuration
     public interface ICommonService
     {
 
-        Task<IEnumerable<RelationShipMasterDTO>> GetAllRelationsAsync();
+        Task<IReadOnlyCollection<RelationShipMasterDTO>> GetAllRelationsAsync();
     }
 }
