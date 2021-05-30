@@ -14,7 +14,7 @@ namespace Business.ConcreteImplementation
         private readonly IRelationShipRepository _relationShipRepository;
         private readonly IMapper mapper;
 
-        public CommonService(IRelationShipRepository relationShipRepository,IMapper mapper)
+        public CommonService(IRelationShipRepository relationShipRepository, IMapper mapper)
         {
             this._relationShipRepository = relationShipRepository;
             this.mapper = mapper;
@@ -22,11 +22,20 @@ namespace Business.ConcreteImplementation
 
         public async Task<IReadOnlyCollection<RelationShipMasterDTO>> GetAllRelationsAsync()
         {
-            var allRelations = _relationShipRepository.Get(x => x.IsActive);
+            try
+            {
+                var allRelations = _relationShipRepository.Get(x => x.IsActive).ToList();
 
-            return mapper.Map<IEnumerable<RelationShipMasterDTO>>(allRelations)
-                .ToList()
-                .AsReadOnly();
+                return mapper
+                    .Map<IEnumerable<RelationShipMasterDTO>>(allRelations)
+                    .ToList()
+                    .AsReadOnly();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
         }
     }
 }

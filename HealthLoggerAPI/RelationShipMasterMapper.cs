@@ -3,7 +3,7 @@ using Business.Models;
 using Data.Models.Common;
 using System.Collections.Generic;
 
-namespace Business.ConcreteImplementation.Mappers
+namespace HealthLoggerAPI.Mappers
 {
     public class RelationShipMasterMapper : Profile
     {
