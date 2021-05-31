@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(HealthLoggerDbContext))]
-    [Migration("20210529125940_Intial")]
-    partial class Intial
+    [Migration("20210531131654_RemovedIsActiveProperty")]
+    partial class RemovedIsActiveProperty
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -65,17 +65,32 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Models.Common.RelationShipMaster", b =>
                 {
-                    b.Property<int>("RelationShipId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("RelationShipName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("RelationShipId");
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
 
                     b.ToTable("RelationShipMasters");
                 });

@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace Data.Models.Patient
 {
-    public class Patient : AuditEntity<short>
+    public class Patient : AuditEntity<int>
     {
-        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }

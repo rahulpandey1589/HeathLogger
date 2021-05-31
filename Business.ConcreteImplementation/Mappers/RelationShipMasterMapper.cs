@@ -10,7 +10,7 @@ namespace Business.ConcreteImplementation.Mappers
         public RelationShipMasterMapper()
         {
             CreateMap<RelationShipMaster, RelationShipMasterDTO>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(x => x.RelationShipId))
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(x => x.Id))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(x => x.RelationShipName));
 
         }

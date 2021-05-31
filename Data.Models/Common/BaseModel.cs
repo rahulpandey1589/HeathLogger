@@ -21,19 +21,6 @@ namespace Data.Models.Common
         bool IsDeleted { get; set; }
     }
 
-    public abstract class AuditEntity<TKey> : DeleteEntity<TKey>, IAuditEntity<TKey>
-    {
-        public DateTime CreatedDate { get; set; }
-        public string CreatedBy { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public string UpdatedBy { get; set; }
-    }
-
-    public abstract class DeleteEntity<TKey> : EntityBase<TKey>, IDeleteEntity<TKey>
-    {
-        public bool IsDeleted { get; set; }
-    }
-
     public interface IDeleteEntity<TKey> : IDeleteEntity, IEntityBase<TKey>
     {
     }

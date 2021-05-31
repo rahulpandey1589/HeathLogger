@@ -2,10 +2,8 @@
 
 namespace Data.Models.Common
 {
-    public class Address : AuditEntity<short>
+    public class Address : AuditEntity<int>
     {
-        public int Id { get; set; }
-
         public string AddressLine1 { get; set; }
 
         public string AddressLine2 { get; set; }

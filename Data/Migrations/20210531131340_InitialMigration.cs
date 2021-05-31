@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Data.Migrations
 {
-    public partial class Intial : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -56,13 +56,19 @@ namespace Data.Migrations
                 name: "RelationShipMasters",
                 columns: table => new
                 {
-                    RelationShipId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RelationShipName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    RelationShipName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RelationShipMasters", x => x.RelationShipId);
+                    table.PrimaryKey("PK_RelationShipMasters", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -103,7 +109,7 @@ namespace Data.Migrations
                         name: "FK_PatientEmergencyContactDetails_RelationShipMasters_RelationShipId",
                         column: x => x.RelationShipId,
                         principalTable: "RelationShipMasters",
-                        principalColumn: "RelationShipId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
