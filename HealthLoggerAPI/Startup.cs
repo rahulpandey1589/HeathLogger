@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace HealthLoggerAPI
@@ -28,7 +29,7 @@ namespace HealthLoggerAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper();
 
             services.AddControllers();
 
@@ -51,7 +52,7 @@ namespace HealthLoggerAPI
 
                 app.UseSwaggerUI(c =>
                 {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "HealthLogger API Version 1");
                     c.RoutePrefix = string.Empty;
                 });
             }

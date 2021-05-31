@@ -22,20 +22,12 @@ namespace Business.ConcreteImplementation
 
         public async Task<IReadOnlyCollection<RelationShipMasterDTO>> GetAllRelationsAsync()
         {
-            try
-            {
-                var allRelations = _relationShipRepository.Get(x => x.IsActive).ToList();
+            var allRelations = _relationShipRepository.Get(x => x.IsActive).ToList();
 
-                return mapper
-                    .Map<IEnumerable<RelationShipMasterDTO>>(allRelations)
-                    .ToList()
-                    .AsReadOnly();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-
+            return mapper
+                .Map<IEnumerable<RelationShipMasterDTO>>(allRelations)
+                .ToList()
+                .AsReadOnly();
         }
     }
 }
