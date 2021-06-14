@@ -13,5 +13,7 @@ namespace Data.Models.Patient
 
         public byte[] RowVersion { get; set; }
         public virtual IEnumerable<PatientEmergencyContactDetails> EmergencyContact { get; set; }
+        public virtual IEnumerable<PatientTestLogger> PatientTestLogger { get; set; }
+
     }
 }

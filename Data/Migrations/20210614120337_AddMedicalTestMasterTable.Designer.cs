@@ -4,14 +4,16 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(HealthLoggerDbContext))]
-    partial class HealthLoggerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210614120337_AddMedicalTestMasterTable")]
+    partial class AddMedicalTestMasterTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -281,51 +283,6 @@ namespace Data.Migrations
                     b.ToTable("PatientEmergencyContactDetails");
                 });
 
-            modelBuilder.Entity("Data.Models.Patient.PatientTestLogger", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("MedicalTestDetailId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MedicalTestMasterId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PatientId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("TestValue")
-                        .HasColumnType("float");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MedicalTestDetailId");
-
-                    b.HasIndex("MedicalTestMasterId");
-
-                    b.HasIndex("PatientId");
-
-                    b.ToTable("PatientTestLogger");
-                });
-
             modelBuilder.Entity("Data.Models.Common.MedicalTestDetail", b =>
                 {
                     b.HasOne("Data.Models.Common.MedicalTestMaster", "MedicalTestMaster")
@@ -364,48 +321,14 @@ namespace Data.Migrations
                     b.Navigation("RelationShip");
                 });
 
-            modelBuilder.Entity("Data.Models.Patient.PatientTestLogger", b =>
-                {
-                    b.HasOne("Data.Models.Common.MedicalTestDetail", "MedicalTestDetail")
-                        .WithMany("PatientTestLogger")
-                        .HasForeignKey("MedicalTestDetailId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Data.Models.Common.MedicalTestMaster", "MedicalTestMaster")
-                        .WithMany("PatientTestLoggers")
-                        .HasForeignKey("MedicalTestMasterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Data.Models.Patient.Patient", "Patient")
-                        .WithMany("PatientTestLogger")
-                        .HasForeignKey("PatientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MedicalTestDetail");
-
-                    b.Navigation("MedicalTestMaster");
-
-                    b.Navigation("Patient");
-                });
-
             modelBuilder.Entity("Data.Models.Common.Address", b =>
                 {
                     b.Navigation("PatientEmergency");
                 });
 
-            modelBuilder.Entity("Data.Models.Common.MedicalTestDetail", b =>
-                {
-                    b.Navigation("PatientTestLogger");
-                });
-
             modelBuilder.Entity("Data.Models.Common.MedicalTestMaster", b =>
                 {
                     b.Navigation("MedicalTestDetails");
-
-                    b.Navigation("PatientTestLoggers");
                 });
 
             modelBuilder.Entity("Data.Models.Common.RelationShipMaster", b =>
@@ -416,8 +339,6 @@ namespace Data.Migrations
             modelBuilder.Entity("Data.Models.Patient.Patient", b =>
                 {
                     b.Navigation("EmergencyContact");
-
-                    b.Navigation("PatientTestLogger");
                 });
 #pragma warning restore 612, 618
         }
