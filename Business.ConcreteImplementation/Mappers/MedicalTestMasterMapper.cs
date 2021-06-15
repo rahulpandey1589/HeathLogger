@@ -6,7 +6,7 @@ namespace Business.ConcreteImplementation.Mappers
 {
     public class MedicalTestMasterMapper : Profile
     {
-        public MedicalTestMasterMapper(string profileName) : base(profileName)
+        public MedicalTestMasterMapper()
         {
             CreateMap<MedicalTestMaster, TestMasterDTO>()
              .ForMember(dest => dest.Id, opt => opt.MapFrom(x => x.Id))

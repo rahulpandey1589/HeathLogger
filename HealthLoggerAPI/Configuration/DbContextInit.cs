@@ -31,6 +31,7 @@ namespace HealthLoggerAPI.Configuration
            this IServiceCollection services)
         {
             services.AddScoped<IRelationShipRepository, RelationShipRepository>();
+            services.AddScoped<ITestMasterRepository, TestMasterRepository>();
             return services;
         }
 

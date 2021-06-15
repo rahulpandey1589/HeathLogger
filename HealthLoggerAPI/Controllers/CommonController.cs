@@ -19,8 +19,16 @@ namespace HealthLoggerAPI.Controllers
         [HttpGet]
         public async Task<ActionResult> GetRelations()
         {
-            var allRelations = await commonService.GetAllRelationsAsync();
-            return Ok();
-        } 
+            var relationMaster = await commonService.GetAllRelationsAsync();
+            return Ok(relationMaster);
+        }
+
+        [Route("getAllTest")]
+        [HttpGet]
+        public async Task<ActionResult> GetAllTest()
+        {
+            var masters = await commonService.GetAllTestAsync();
+            return Ok(masters);
+        }
     }
 }
