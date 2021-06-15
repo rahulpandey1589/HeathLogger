@@ -4,14 +4,16 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(HealthLoggerDbContext))]
-    partial class HealthLoggerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210615052805_Renamed_MedicalTestMasterId_To_TestMasterId")]
+    partial class Renamed_MedicalTestMasterId_To_TestMasterId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

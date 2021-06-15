@@ -5,7 +5,7 @@ namespace Data.Models.Common
 {
     public class MedicalTestDetail : AuditEntity<int>
     {
-        public int MedicalTestMasterId { get; set; }
+        public int TestMasterId { get; set; }
 
         public virtual MedicalTestMaster MedicalTestMaster { get; set; }
 

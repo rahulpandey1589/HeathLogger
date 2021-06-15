@@ -17,7 +17,7 @@ namespace Data.Infrastructure
 
             builder.HasMany(x => x.MedicalTestDetails)
                 .WithOne(x => x.MedicalTestMaster)
-                .HasForeignKey(x => x.MedicalTestMasterId);
+                .HasForeignKey(x => x.TestMasterId);
         }
     }
 }
