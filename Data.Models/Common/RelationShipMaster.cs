@@ -6,6 +6,6 @@ namespace Data.Models.Common
     {  
         public string RelationShipName { get; set; }
 
-        public virtual PatientEmergencyContactDetails PatientEmergency { get; set; }
+        public virtual EmergencyContactDetails PatientEmergency { get; set; }
     }
 }

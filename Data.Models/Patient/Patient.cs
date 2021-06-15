@@ -12,7 +12,7 @@ namespace Data.Models.Patient
         public char Gender { get; set; }
 
         public byte[] RowVersion { get; set; }
-        public virtual IEnumerable<PatientEmergencyContactDetails> EmergencyContact { get; set; }
+        public virtual IEnumerable<EmergencyContactDetails> EmergencyContact { get; set; }
         public virtual IEnumerable<PatientTestLogger> PatientTestLogger { get; set; }
 
     }

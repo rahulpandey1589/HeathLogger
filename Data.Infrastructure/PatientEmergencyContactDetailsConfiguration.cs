@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Data.Infrastructure
 {
-    public class PatientEmergencyContactDetailsConfiguration : IEntityTypeConfiguration<PatientEmergencyContactDetails>
+    public class PatientEmergencyContactDetailsConfiguration : IEntityTypeConfiguration<EmergencyContactDetails>
     {
-        public void Configure(EntityTypeBuilder<PatientEmergencyContactDetails> builder)
+        public void Configure(EntityTypeBuilder<EmergencyContactDetails> builder)
         {
             builder.HasKey(x => x.Id);
 
@@ -20,12 +20,12 @@ namespace Data.Infrastructure
 
             builder.HasOne(x => x.RelationShip)
                    .WithOne(x => x.PatientEmergency)
-                   .HasForeignKey<PatientEmergencyContactDetails>(x => x.RelationShipId);
+                   .HasForeignKey<EmergencyContactDetails>(x => x.RelationShipId);
 
 
             builder.HasOne(x => x.EmergencyContactDetailAddress)
                    .WithOne(x => x.PatientEmergency)
-                   .HasForeignKey<PatientEmergencyContactDetails>(x => x.AddressId);
+                   .HasForeignKey<EmergencyContactDetails>(x => x.AddressId);
 
         }
     }

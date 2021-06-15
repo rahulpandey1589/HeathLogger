@@ -14,7 +14,7 @@ namespace Data
         }
 
         public DbSet<Patient> Patients { get; set; }
-        public DbSet<PatientEmergencyContactDetails> PatientEmergencyContactDetails {get;set;}
+        public DbSet<EmergencyContactDetails> EmergencyContactDetails {get;set;}
         public DbSet<RelationShipMaster> RelationShipMasters { get; set; }
         public DbSet<Address> Address { get; set; }
         public DbSet<MedicalTestMaster> TestMaster { get; set; }
