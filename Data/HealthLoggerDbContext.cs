@@ -1,6 +1,8 @@
 ﻿using Data.Infrastructure;
+using Data.Migrations;
 using Data.Models.Common;
 using Data.Models.Patient;
+using Data.Models.Users;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -20,6 +22,8 @@ namespace Data
         public DbSet<MedicalTestMaster> TestMaster { get; set; }
         public DbSet<MedicalTestDetail> TestDetails { get; set; }
         public DbSet<PatientTestLogger> PatientTestLogger { get; set; }
+        public DbSet<Users> Users { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,6 +33,8 @@ namespace Data
             modelBuilder.ApplyConfiguration(new MedicalTestMasterConfiguration());
             modelBuilder.ApplyConfiguration(new MedicalTestDetailsConfiguration());
             modelBuilder.ApplyConfiguration(new PatientTestLoggerConfiguration());
+
+            modelBuilder.SeedData();
         }
     }
 }
