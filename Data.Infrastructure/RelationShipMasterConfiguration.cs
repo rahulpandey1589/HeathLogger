@@ -9,7 +9,6 @@ namespace Data.Infrastructure
         public void Configure(EntityTypeBuilder<RelationShipMaster> builder)
         {
             builder.HasKey(x => x.Id);
-
             builder.Property(x => x.RelationShipName).HasMaxLength(50).IsRequired();
         }
     }
