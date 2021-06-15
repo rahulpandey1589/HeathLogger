@@ -12,7 +12,7 @@ namespace Business.ConcreteImplementation.Common
     public class CommonService : ICommonService
     {
         private readonly IRelationShipRepository _commonRepository;
-        private readonly IMapper mapper;
+        private readonly IMapper _mapper;
         private readonly ITestMasterRepository _testMasterRepository;
 
         public CommonService(IRelationShipRepository commonRepository,
@@ -20,14 +20,14 @@ namespace Business.ConcreteImplementation.Common
             ITestMasterRepository testMasterRepository)
         {
             this._commonRepository = commonRepository;
-            this.mapper = mapper;
+            this._mapper = mapper;
             this._testMasterRepository = testMasterRepository;
         }
 
         public async Task<IReadOnlyCollection<RelationShipMasterDTO>> GetAllRelationsAsync()
         {
             var allRelations = await _commonRepository.Get(x => !x.IsDeleted)
-                               .ProjectTo<RelationShipMasterDTO>(mapper.ConfigurationProvider)
+                               .ProjectTo<RelationShipMasterDTO>(_mapper.ConfigurationProvider)
                                .ToListAsync()
                                .ConfigureAwait(false);
 
@@ -36,20 +36,12 @@ namespace Business.ConcreteImplementation.Common
 
         public async Task<IReadOnlyCollection<TestMasterDTO>> GetAllTestAsync()
         {
-            try
-            {
-                var data = await _testMasterRepository.Get(x => !x.IsDeleted)
-                                  .ProjectTo<TestMasterDTO>(mapper.ConfigurationProvider)
-                                  .ToListAsync()
-                                  .ConfigureAwait(false);
+            var data = await _testMasterRepository.Get(x => !x.IsDeleted)
+                            .ProjectTo<TestMasterDTO>(_mapper.ConfigurationProvider)
+                            .ToListAsync()
+                            .ConfigureAwait(false);
 
-                return data.AsReadOnly();
-
-            }
-            catch (System.Exception ex)
-            {
-                throw;
-            }
+            return data.AsReadOnly();
         }
     }
 }
