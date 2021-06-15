@@ -18,10 +18,6 @@ namespace Data.Infrastructure
             builder.HasMany(x => x.MedicalTestDetails)
                 .WithOne(x => x.MedicalTestMaster)
                 .HasForeignKey(x => x.MedicalTestMasterId);
-
-            builder.HasMany(x => x.PatientTestLoggers)
-             .WithOne(x => x.MedicalTestMaster)
-             .HasForeignKey(x => x.MedicalTestMasterId);
         }
     }
 }

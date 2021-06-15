@@ -28,7 +28,7 @@ namespace Data
             modelBuilder.ApplyConfiguration(new RelationShipMasterConfiguration());
             modelBuilder.ApplyConfiguration(new MedicalTestMasterConfiguration());
             modelBuilder.ApplyConfiguration(new MedicalTestDetailsConfiguration());
-
+            modelBuilder.ApplyConfiguration(new PatientTestLoggerConfiguration());
         }
     }
 }

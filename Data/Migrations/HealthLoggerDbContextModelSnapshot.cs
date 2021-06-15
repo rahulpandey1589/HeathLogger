@@ -300,13 +300,14 @@ namespace Data.Migrations
                     b.Property<int>("MedicalTestDetailId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MedicalTestMasterId")
+                    b.Property<int?>("MedicalTestMasterId")
                         .HasColumnType("int");
 
                     b.Property<int>("PatientId")
                         .HasColumnType("int");
 
                     b.Property<double>("TestValue")
+                        .HasMaxLength(10)
                         .HasColumnType("float");
 
                     b.Property<string>("UpdatedBy")
@@ -372,11 +373,9 @@ namespace Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Data.Models.Common.MedicalTestMaster", "MedicalTestMaster")
+                    b.HasOne("Data.Models.Common.MedicalTestMaster", null)
                         .WithMany("PatientTestLoggers")
-                        .HasForeignKey("MedicalTestMasterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MedicalTestMasterId");
 
                     b.HasOne("Data.Models.Patient.Patient", "Patient")
                         .WithMany("PatientTestLogger")
@@ -385,8 +384,6 @@ namespace Data.Migrations
                         .IsRequired();
 
                     b.Navigation("MedicalTestDetail");
-
-                    b.Navigation("MedicalTestMaster");
 
                     b.Navigation("Patient");
                 });
