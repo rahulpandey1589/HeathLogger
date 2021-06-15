@@ -1,4 +1,4 @@
-﻿using Business.Configuration;
+﻿using Business.Configuration.Common;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 

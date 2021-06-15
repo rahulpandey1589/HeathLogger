@@ -1,10 +1,6 @@
-﻿using Business.ConcreteImplementation;
-using Business.Configuration;
+﻿using Business.ConcreteImplementation.Common;
+using Business.Configuration.Common;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HealthLoggerAPI.Configuration
 {

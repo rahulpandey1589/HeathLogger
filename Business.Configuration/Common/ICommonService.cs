@@ -1,9 +1,8 @@
-﻿using Business.Models;
-using Business.Models.Common;
+﻿using Business.Models.Common;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Business.Configuration
+namespace Business.Configuration.Common
 {
     public interface ICommonService
     {

@@ -1,12 +1,14 @@
-﻿using Business.Configuration;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using AutoMapper;
 using Data.Repositories.Interface.Common;
 using Business.Models.Common;
+using Business.Configuration.Common;
+using AutoMapper.QueryableExtensions;
+using Microsoft.EntityFrameworkCore;
 
-namespace Business.ConcreteImplementation
+namespace Business.ConcreteImplementation.Common
 {
     public class CommonService : ICommonService
     {
@@ -33,9 +35,20 @@ namespace Business.ConcreteImplementation
 
         public async Task<IReadOnlyCollection<TestMasterDTO>> GetAllTestAsync()
         {
-            var testMaster = _testMasterRepository.Get(x => !x.IsDeleted).ToList();
+            try
+            {
+                var data = await _testMasterRepository.Get(x => !x.IsDeleted)
+                                  .ProjectTo<TestMasterDTO>(mapper.ConfigurationProvider)
+                                  .ToListAsync()
+                                  .ConfigureAwait(false);
 
-            return mapper.Map<IEnumerable<TestMasterDTO>>(testMaster).ToList().AsReadOnly();
+                return data.AsReadOnly();
+
+            }
+            catch (System.Exception ex)
+            {
+                throw;
+            }
         }
     }
 }
