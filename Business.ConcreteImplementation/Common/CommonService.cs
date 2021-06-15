@@ -28,8 +28,7 @@ namespace Business.ConcreteImplementation.Common
         {
             var allRelations = await _commonRepository.Get(x => !x.IsDeleted)
                                .ProjectTo<RelationShipMasterDTO>(_mapper.ConfigurationProvider)
-                               .ToListAsync()
-                               .ConfigureAwait(false);
+                               .ToListAsync();
 
             return allRelations.AsReadOnly();
         }
@@ -38,8 +37,7 @@ namespace Business.ConcreteImplementation.Common
         {
             var data = await _testMasterRepository.Get(x => !x.IsDeleted)
                             .ProjectTo<TestMasterDTO>(_mapper.ConfigurationProvider)
-                            .ToListAsync()
-                            .ConfigureAwait(false);
+                            .ToListAsync();
 
             return data.AsReadOnly();
         }
