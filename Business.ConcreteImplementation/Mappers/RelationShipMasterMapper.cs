@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using Business.Models;
+using Business.Models.Common;
 using Data.Models.Common;
-using System.Collections.Generic;
 
 namespace Business.ConcreteImplementation.Mappers
 {
@@ -12,7 +11,6 @@ namespace Business.ConcreteImplementation.Mappers
             CreateMap<RelationShipMaster, RelationShipMasterDTO>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(x => x.Id))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(x => x.RelationShipName));
-
         }
     }
 }

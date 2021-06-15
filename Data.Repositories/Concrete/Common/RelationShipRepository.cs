@@ -1,8 +1,8 @@
 ﻿using Data.Configuration;
 using Data.Models.Common;
-using Data.Repositories.Interface;
+using Data.Repositories.Interface.Common;
 
-namespace Data.Repositories.Concrete
+namespace Data.Repositories.Concrete.Common
 {
     public class RelationShipRepository : GenericRepository<RelationShipMaster>, IRelationShipRepository
     {

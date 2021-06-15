@@ -1,7 +1,7 @@
 ﻿using Data;
 using Data.Configuration;
-using Data.Repositories.Concrete;
-using Data.Repositories.Interface;
+using Data.Repositories.Concrete.Common;
+using Data.Repositories.Interface.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
