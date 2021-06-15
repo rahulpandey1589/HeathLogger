@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Linq;
 using AutoMapper;
 using Data.Repositories.Interface.Common;
 using Business.Models.Common;
@@ -27,10 +26,12 @@ namespace Business.ConcreteImplementation.Common
 
         public async Task<IReadOnlyCollection<RelationShipMasterDTO>> GetAllRelationsAsync()
         {
-            var allRelations = _commonRepository.Get(x => !x.IsDeleted).ToList();
+            var allRelations = await _commonRepository.Get(x => !x.IsDeleted)
+                               .ProjectTo<RelationShipMasterDTO>(mapper.ConfigurationProvider)
+                               .ToListAsync()
+                               .ConfigureAwait(false);
 
-            return mapper.Map<IEnumerable<RelationShipMasterDTO>>(allRelations).ToList()
-                .AsReadOnly();
+            return allRelations.AsReadOnly();
         }
 
         public async Task<IReadOnlyCollection<TestMasterDTO>> GetAllTestAsync()
