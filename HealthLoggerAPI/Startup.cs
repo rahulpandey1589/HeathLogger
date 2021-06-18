@@ -1,5 +1,6 @@
 using Business.Models;
 using Data;
+using Data.DependencyRegistration.Core;
 using HealthLoggerAPI.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,7 +36,7 @@ namespace HealthLoggerAPI
             services.AddControllers();
 
             services.RegisterDbContext(Configuration)
-                     .RegisterRepositories();
+                    .RegisterRepositories();
 
             services.RegisterDependencies();
 

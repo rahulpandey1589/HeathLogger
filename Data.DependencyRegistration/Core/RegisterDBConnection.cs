@@ -1,5 +1,4 @@
-﻿using Data;
-using Data.Configuration;
+﻿using Data.Configuration;
 using Data.Repositories.Concrete.Common;
 using Data.Repositories.Interface.Common;
 using Microsoft.EntityFrameworkCore;
@@ -7,9 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace HealthLoggerAPI.Configuration
+namespace Data.DependencyRegistration.Core
 {
-    public static class DbContextInit
+    public static class RegisterDBConnection
     {
         public static IServiceCollection RegisterDbContext(
             this IServiceCollection services,
@@ -28,12 +27,12 @@ namespace HealthLoggerAPI.Configuration
         }
 
         public static IServiceCollection RegisterRepositories(
-           this IServiceCollection services)
+         this IServiceCollection services)
         {
             services.AddScoped<IRelationShipRepository, RelationShipRepository>();
             services.AddScoped<ITestMasterRepository, TestMasterRepository>();
             return services;
         }
-
     }
+
 }

@@ -18,9 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Business.ConcreteImplementation\Business.ConcreteImplementation.csproj" />
     <ProjectReference Include="..\Business.Configuration\Business.Configuration.csproj" />
-    <ProjectReference Include="..\Data.Configuration\Data.Configuration.csproj" />
-    <ProjectReference Include="..\Data.Repositories\Data.Repositories.csproj" />
-    <ProjectReference Include="..\Data\Data.csproj" />
+    <ProjectReference Include="..\Data.DependencyRegistration\Data.DependencyRegistration.csproj" />
   </ItemGroup>
 
 
