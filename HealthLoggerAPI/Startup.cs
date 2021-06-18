@@ -1,6 +1,7 @@
 using Business.Models;
 using Data;
 using Data.DependencyRegistration.Core;
+using FluentValidation.AspNetCore;
 using HealthLoggerAPI.Configuration;
 using HealthLoggerAPI.Filters;
 using Microsoft.AspNetCore.Builder;
@@ -41,7 +42,10 @@ namespace HealthLoggerAPI
 
             services.RegisterDependencies();
 
-            services.AddMvc(option => option.Filters.Add(typeof(LogException)));
+            services.AddMvc(setup => setup.Filters.Add(typeof(LogException)))
+                .AddFluentValidation();
+
+            services.RegisterFluentValidation();
 
             services.AddSwaggerGen();
         }

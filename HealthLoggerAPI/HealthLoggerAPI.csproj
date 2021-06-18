@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="10.2.3" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.2.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.6">
       <PrivateAssets>all</PrivateAssets>
@@ -19,6 +21,10 @@
     <ProjectReference Include="..\Business.ConcreteImplementation\Business.ConcreteImplementation.csproj" />
     <ProjectReference Include="..\Business.Configuration\Business.Configuration.csproj" />
     <ProjectReference Include="..\Data.DependencyRegistration\Data.DependencyRegistration.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\Response\" />
   </ItemGroup>
 
 

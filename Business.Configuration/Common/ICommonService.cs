@@ -8,6 +8,6 @@ namespace Business.Configuration.Common
     {
         Task<IReadOnlyCollection<RelationShipMasterDTO>> GetAllRelationsAsync();
 
-        Task<IReadOnlyCollection<TestMasterDTO>> GetAllTestAsync();
+        Task<IReadOnlyCollection<TestMasterDTO>> GetAllTestAsync(int? id);
     }
 }
