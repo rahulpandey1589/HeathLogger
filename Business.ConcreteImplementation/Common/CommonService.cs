@@ -15,7 +15,8 @@ namespace Business.ConcreteImplementation.Common
         private readonly IMapper _mapper;
         private readonly ITestMasterRepository _testMasterRepository;
 
-        public CommonService(IRelationShipRepository commonRepository,
+        public CommonService(
+            IRelationShipRepository commonRepository,
             IMapper mapper,
             ITestMasterRepository testMasterRepository)
         {

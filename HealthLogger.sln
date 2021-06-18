@@ -21,7 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business.ConcreteImplementa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business.Models", "Business.Models\Business.Models.csproj", "{B31537DC-9405-4F31-B839-04D82844C613}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.DependencyRegistration", "Data.DependencyRegistration\Data.DependencyRegistration.csproj", "{9ED4C30C-7D5A-427A-B64E-333F4C421A6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.DependencyRegistration", "Data.DependencyRegistration\Data.DependencyRegistration.csproj", "{9ED4C30C-7D5A-427A-B64E-333F4C421A6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E6AF94E0-838D-4D18-A96C-23A69586624E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthLogger.Tests", "HealthLogger.Tests\HealthLogger.Tests.csproj", "{ABB6E7DB-82E3-4533-A668-5E2DE6C8576D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,9 +73,16 @@ Global
 		{9ED4C30C-7D5A-427A-B64E-333F4C421A6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ED4C30C-7D5A-427A-B64E-333F4C421A6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9ED4C30C-7D5A-427A-B64E-333F4C421A6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABB6E7DB-82E3-4533-A668-5E2DE6C8576D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB6E7DB-82E3-4533-A668-5E2DE6C8576D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB6E7DB-82E3-4533-A668-5E2DE6C8576D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB6E7DB-82E3-4533-A668-5E2DE6C8576D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ABB6E7DB-82E3-4533-A668-5E2DE6C8576D} = {E6AF94E0-838D-4D18-A96C-23A69586624E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4DEE7532-F8CF-435F-9CBF-289EF26D9565}
