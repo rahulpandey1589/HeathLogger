@@ -1,5 +1,4 @@
 ﻿using Business.Configuration.Common;
-using Business.Models.Common;
 using HealthLoggerAPI.Models.Request;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
