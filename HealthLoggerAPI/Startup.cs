@@ -2,6 +2,7 @@ using Business.Models;
 using Data;
 using Data.DependencyRegistration.Core;
 using HealthLoggerAPI.Configuration;
+using HealthLoggerAPI.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -40,6 +41,8 @@ namespace HealthLoggerAPI
 
             services.RegisterDependencies();
 
+            services.AddMvc(option => option.Filters.Add(typeof(LogException)));
+
             services.AddSwaggerGen();
         }
 
@@ -69,6 +72,7 @@ namespace HealthLoggerAPI
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }
