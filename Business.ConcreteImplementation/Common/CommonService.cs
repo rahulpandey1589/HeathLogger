@@ -32,7 +32,8 @@ namespace Business.ConcreteImplementation.Common
 
         public async Task<IReadOnlyCollection<RelationShipMasterDTO>> GetAllRelationsAsync()
         {
-            var allRelations = await _commonRepository.Get(x => !x.IsDeleted)
+            var allRelations = await _commonRepository
+                               .Get(x => !x.IsDeleted)
                                .ProjectTo<RelationShipMasterDTO>(_mapper.ConfigurationProvider)
                                .ToListAsync();
 
@@ -41,8 +42,8 @@ namespace Business.ConcreteImplementation.Common
 
         public async Task<IReadOnlyCollection<TestMasterDTO>> GetAllTestAsync(int? id)
         {
-            var data = await _testMasterRepository.Get(x => !x.IsDeleted
-                                                       && x.Id == id.Value)
+            var data = await _testMasterRepository
+                            .Get(x => !x.IsDeleted  && x.Id == id.Value)
                             .ProjectTo<TestMasterDTO>(_mapper.ConfigurationProvider)
                             .ToListAsync();
 
