@@ -23,9 +23,5 @@
     <ProjectReference Include="..\Data.DependencyRegistration\Data.DependencyRegistration.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\Response\" />
-  </ItemGroup>
-
 
 </Project>

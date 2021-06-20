@@ -1,5 +1,7 @@
 ﻿using Business.Configuration.Common;
+using HealthLoggerAPI.Models;
 using HealthLoggerAPI.Models.Request;
+using HealthLoggerAPI.Models.Response;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -27,15 +29,16 @@ namespace HealthLoggerAPI.Controllers
         [Route("getAllTest")]
         [Route("getAllTest/{id:int?}")]
         [HttpGet]
-        public async Task<ActionResult> GetAllTest(int? id=null)
+        public async Task<ActionResult<Response<TestMasterViewModelResponse>>> GetAllTest(int? id=null)
         {
             var masters = await commonService.GetAllTestAsync(id);
-            return Ok(masters);
+            if(masters.Count > 0) return Ok(masters);
+            return NoContent();
         }
 
         [Route("createNew")]
         [HttpPost]
-        public async Task<ActionResult> CreateTest(TestMasterViewModel testMaster)
+        public async Task<ActionResult> CreateTest(TestMasterViewModelRequest testMaster)
         {
             return Ok();
         }

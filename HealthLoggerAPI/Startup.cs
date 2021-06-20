@@ -4,6 +4,7 @@ using Data.DependencyRegistration.Core;
 using FluentValidation.AspNetCore;
 using HealthLoggerAPI.Configuration;
 using HealthLoggerAPI.Filters;
+using HealthLoggerAPI.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -76,6 +77,8 @@ namespace HealthLoggerAPI
             {
                 endpoints.MapControllers();
             });
+
+            app.UseMiddleware<ResponseMiddleware>();
 
         }
     }

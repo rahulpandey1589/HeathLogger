@@ -13,7 +13,7 @@ namespace HealthLoggerAPI.Configuration
 
         public static void RegisterFluentValidation(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddTransient<IValidator<TestMasterViewModel>, TestMasterViewModelValidator>();
+            serviceCollection.AddTransient<IValidator<TestMasterViewModelRequest>, TestMasterViewModelValidator>();
         }
 
     }

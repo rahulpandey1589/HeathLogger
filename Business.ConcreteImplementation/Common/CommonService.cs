@@ -36,7 +36,8 @@ namespace Business.ConcreteImplementation.Common
 
         public async Task<IReadOnlyCollection<TestMasterDTO>> GetAllTestAsync(int? id)
         {
-            var data = await _testMasterRepository.Get(x => !x.IsDeleted && x.Id == id.Value)
+            var data = await _testMasterRepository.Get(x => !x.IsDeleted 
+                                                       && x.Id == id.Value)
                             .ProjectTo<TestMasterDTO>(_mapper.ConfigurationProvider)
                             .ToListAsync();
 
