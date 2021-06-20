@@ -9,5 +9,7 @@ namespace Business.Configuration.Common
         Task<IReadOnlyCollection<RelationShipMasterDTO>> GetAllRelationsAsync();
 
         Task<IReadOnlyCollection<TestMasterDTO>> GetAllTestAsync(int? id);
+
+        Task<int> InsertNewTest(TestMasterDTO testMaster);
     }
 }

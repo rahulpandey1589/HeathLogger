@@ -34,7 +34,6 @@ namespace HealthLoggerAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.RegisterAutoMapper();
-
             services.AddControllers();
 
             services.RegisterDbContext(Configuration)

@@ -14,7 +14,7 @@ namespace Business.Models.Common
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<MedicalTestMaster, TestMasterDTO>();
+            profile.CreateMap<MedicalTestMaster, TestMasterDTO>().ReverseMap();
         }
     }
 }

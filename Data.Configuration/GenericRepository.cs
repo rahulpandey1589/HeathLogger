@@ -26,6 +26,7 @@ namespace Data.Configuration
             if (typeof(IAuditEntity).IsAssignableFrom(typeof(T)))
             {
                 ((IAuditEntity)entity).CreatedDate = DateTime.UtcNow;
+
             }
             DbSet.Add(entity);
         }

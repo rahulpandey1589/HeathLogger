@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using HealthLoggerAPI.Models;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace HealthLoggerAPI.Filters
 {

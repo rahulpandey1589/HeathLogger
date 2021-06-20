@@ -6,6 +6,8 @@ using Business.Models.Common;
 using Business.Configuration.Common;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
+using Data.Models.Common;
+using Data.Configuration;
 
 namespace Business.ConcreteImplementation.Common
 {
@@ -14,15 +16,18 @@ namespace Business.ConcreteImplementation.Common
         private readonly IRelationShipRepository _commonRepository;
         private readonly IMapper _mapper;
         private readonly ITestMasterRepository _testMasterRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
         public CommonService(
             IRelationShipRepository commonRepository,
             IMapper mapper,
-            ITestMasterRepository testMasterRepository)
+            ITestMasterRepository testMasterRepository,
+            IUnitOfWork unitOfWork)
         {
             this._commonRepository = commonRepository;
             this._mapper = mapper;
             this._testMasterRepository = testMasterRepository;
+            this._unitOfWork = unitOfWork;
         }
 
         public async Task<IReadOnlyCollection<RelationShipMasterDTO>> GetAllRelationsAsync()
@@ -36,12 +41,21 @@ namespace Business.ConcreteImplementation.Common
 
         public async Task<IReadOnlyCollection<TestMasterDTO>> GetAllTestAsync(int? id)
         {
-            var data = await _testMasterRepository.Get(x => !x.IsDeleted 
+            var data = await _testMasterRepository.Get(x => !x.IsDeleted
                                                        && x.Id == id.Value)
                             .ProjectTo<TestMasterDTO>(_mapper.ConfigurationProvider)
                             .ToListAsync();
 
             return data.AsReadOnly();
+        }
+
+        public async Task<int> InsertNewTest(TestMasterDTO testMaster)
+        {
+            var response = _mapper.Map<MedicalTestMaster>(testMaster);
+
+            _testMasterRepository.Add(response);
+            
+            return await _unitOfWork.CommitAsync();
         }
     }
 }
