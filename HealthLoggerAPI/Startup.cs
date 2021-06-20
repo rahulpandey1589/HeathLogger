@@ -73,12 +73,13 @@ namespace HealthLoggerAPI
 
             app.UseAuthorization();
 
+            app.UseMiddleware<ResponseMiddleware>();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
 
-            app.UseMiddleware<ResponseMiddleware>();
 
         }
     }
